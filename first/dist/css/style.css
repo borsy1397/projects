@@ -1,0 +1,122 @@
+body, html {
+  height: 100%;
+}
+
+a:hover {
+  font-style: italic;
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 20px;
+  width: 200px;
+  margin-right: 20px;
+}
+
+.collapse {
+  justify-content: center;
+}
+
+.custom {
+  background: white;
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.full-page {
+  background-image: url("../asset/road.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.jumbotron {
+  background: transparent;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  height: 100%;
+}
+
+.jumbotron h1 {
+  color: white;
+  font-size: 70px;
+  padding: 30px;
+  border-radius: 25px;
+  background: rgb(0, 0, 0, 0.3);
+  display: block !important;
+  margin-left: -10px;
+}
+
+.logo {
+  display: block;
+  height: 47px;
+  margin-left: 5px;
+  position: relative;
+  width: 125px;
+}
+
+.logo-container {
+  background: url(../asset/logo_orange.png) 0 0/124px auto no-repeat;
+  text-indent: -9999em;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-link-text {
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  padding-right: 1.5rem !important;
+}
+
+.nav-link-scroll {
+  color: rgb(0, 0, 0) !important;
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255);
+}
+
+.vertical-spacer {
+  color: #fff;
+  display: inline-block;
+  font-size: .875em;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .pipe {
+    display: none;
+  }
+  .navbar {
+    background: white;
+  }
+  .nav-link-text {
+    text-align: center;
+    color: red;
+  }
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgba(0, 0, 0) !important;
+  }
+  a:hover {
+    background-color: rgba(207, 61, 61, 0.26);
+    font-style: normal !important;
+  }
+}
