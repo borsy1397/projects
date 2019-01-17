@@ -16,7 +16,7 @@
 
 <body>
 
-    <div class="full-page">
+    <div class="full-page" id="fullpage">
         <header>
             <nav class="navbar navbar-expand-md fixed-top navbar-dark custom2" id="navbaar">
                 <div class="container">
@@ -24,8 +24,9 @@
                         <div class="logo-container">BB</div>
                     </a>
 
-                    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler custom-toggler" type="button" data-clicked="false" data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation" id="toggler">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -44,8 +45,9 @@
         </header>
 
         <div class="jumbotron container">
-            <h1>Application for<br><strong>Weather and Food<br></strong>
-                <button class="btn btn-success">Look the weather</button><button class="btn btn-success">Find Recipe</button></h1>
+            <h1 id="cim">Application for<br><strong>Weather and Food<br></strong>
+                <button class="btn fura btn-success">Look the weather</button><button class="btn btn-success fura">Find
+                    Recipe</button></h1>
             <!--hogy ezt maskepp nem lehet..... -->
         </div>
 
@@ -54,14 +56,96 @@
 
 
     <main>
-        <div class="container" style="height: 1000px; background: orange;">
+        <section class="food" style="padding-bottom: 100px;">
+            <div class="container">
+                <h1 class="text-center findRecipe">Find your <strong>favourite
+                        recipe!</strong></h1>
+                <hr class="line" id="recipeStarter">
 
-        </div>
 
+
+
+
+                <div class="recipeContainer">
+                    <div class="searchLine">
+                        <div class="active-cyan-4 mb-4 searchField" style="width: 50%; display: inline;">
+                            <form class="searchField">
+                                <input type="text" id="searchFieldValue" placeholder="Search recipe" aria-label="Search"
+                                    autocomplete="off">
+                                <button>
+                                    <span style="font-weight: 500;">Search</span>
+                                    <img src="/asset/search.png" alt="">
+                                </button>
+                            </form>
+                        </div>
+                        <div class="pages">
+                           
+                        </div>
+                    </div>
+                    <div class="container text-center" style="width: 100%; padding: 0px; padding-top: 30px;">
+                            <div class="bestRecipes">
+                                    <h1>Most searched recipes: <strong>pizza, chicken, meat</strong></h1>
+                                </div>
+
+                                
+
+                        <div class="row recipeList">
+                            <!-- <div class="card-group col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 text-center" style="margin-bottom: 10px;">
+                                <div class="card  card__one" style="margin-right: 5px">
+                                    <div>
+                                        <img class="img-fluid text-center" style="border-radius: 50%; margin-top: 10px; height: 120px; width: 120px;"
+                                            src="/asset/chicken.jpg" alt="Card image cap">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <div class="row">
+                                            <div class="col-md-6 health-diet">
+                                                <p class="card-text">Diet</p>
+                                                <ul class="health-diet">
+                                                    <li>
+                                                        Fura
+                                                    </li>
+                                                    <li>
+                                                        Hosszabb vvalami
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 health-diet">
+                                                <p class="card-text">Health</p>
+                                                <ul class="health-diet">
+                                                    <li>
+                                                        ksaédf
+                                                    </li>
+                                                    <li>
+                                                        lksadjfsaf
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">from XY</small>
+                                    </div>
+                                </div>
+                            </div>
+                             -->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="weather">
+
+        </section>
     </main>
 
     <footer>
-        
+
     </footer>
 
 
@@ -73,6 +157,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+
+
 
 </body>
 
