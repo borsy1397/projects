@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>borsybeci</title>
+    <title>foodandweather</title>
 
 
 
@@ -12,6 +12,8 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
 </head>
 
 <body>
@@ -50,93 +52,122 @@
                     Recipe</button></h1>
             <!--hogy ezt maskepp nem lehet..... -->
         </div>
-
     </div>
 
-
-
     <main>
-        <section class="food" style="padding-bottom: 100px;">
+        <section class="food">
             <div class="container">
-                <h1 class="text-center findRecipe">Find your <strong>favourite
-                        recipe!</strong></h1>
+                <h1 class="text-center findRecipe">Find your <strong>favourite recipe!</strong></h1>
                 <hr class="line" id="recipeStarter">
-
-
-
-
-
                 <div class="recipeContainer">
                     <div class="searchLine">
-                        <div class="active-cyan-4 mb-4 searchField" style="width: 50%; display: inline;">
+                        <div class="active-cyan-4 mb-4 searchField">
                             <form class="searchField">
                                 <input type="text" id="searchFieldValue" placeholder="Search recipe" aria-label="Search"
                                     autocomplete="off">
-                                <button>
-                                    <span style="font-weight: 500;">Search</span>
-                                    <img src="/asset/search.png" alt="">
+                                <button class="btn btn-secondary">
+                                    <span>Search</span>
+                                    <img class="magnify" src="/asset/search.png" alt="">
                                 </button>
                             </form>
                         </div>
                         <div class="pages">
-                           
+
+                            <!-- IDE JON A LAPOZAS -->
+
+                            <!-- <button class="btn-inline prev btn-page" id="prev" data-goto=pgae> <img class="arrow"
+                                    src="/asset/back.png" /> Page num </button> -->
+
+                            <!-- <button class="btn-inline next btn-page" id="next" data-goto=page> Page num <img
+                                    class="arrow" src="/asset/right-arrow.png" /> </button> -->
                         </div>
                     </div>
-                    <div class="container text-center" style="width: 100%; padding: 0px; padding-top: 30px;">
-                            <div class="bestRecipes">
-                                    <h1>Most searched recipes: <strong>pizza, chicken, meat</strong></h1>
-                                </div>
+                    <div class="container text-center containerList">
+                        <div class="bestRecipes">
+                            <h1>Most searched recipes: <strong>pizza, chicken, meat</strong></h1>
+                        </div>
 
-                                
+                        <!-- IDE JON A MODAL -->
 
-                        <div class="row recipeList">
-                            <!-- <div class="card-group col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 text-center" style="margin-bottom: 10px;">
-                                <div class="card  card__one" style="margin-right: 5px">
-                                    <div>
-                                        <img class="img-fluid text-center" style="border-radius: 50%; margin-top: 10px; height: 120px; width: 120px;"
-                                            src="/asset/chicken.jpg" alt="Card image cap">
+                        <!-- <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4>Name</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <div class="row">
-                                            <div class="col-md-6 health-diet">
-                                                <p class="card-text">Diet</p>
-                                                <ul class="health-diet">
-                                                    <li>
-                                                        Fura
-                                                    </li>
-                                                    <li>
-                                                        Hosszabb vvalami
-                                                    </li>
-                                                </ul>
+                                    <div class="modal-body">
+                                        <div>
+                                            <div class="modal-body-image">
+                                                <img src="/asset/road.jpg" alt="">
                                             </div>
-                                            <div class="col-md-6 health-diet">
-                                                <p class="card-text">Health</p>
-                                                <ul class="health-diet">
-                                                    <li>
-                                                        ksaédf
-                                                    </li>
-                                                    <li>
-                                                        lksadjfsaf
-                                                    </li>
-                                                </ul>
+                                            <div class="yield-time">
+                                                <div>
+                                                    <span><i class="far fa-user"> </i>YIELD</span>
+                                                </div>
+                                                <div>
+                                                    <span><i class="far fa-clock"> </i>MINUTES </span>
+                                                </div>
                                             </div>
-
+                                            <div class="row ing-diet-health">
+                                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                                    <div class="list-ing-diet-health">
+                                                            <h5>Ingredients</h5>
+                                                        <ul>
+                                                            <li><span>&#10003;</span>ING1</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                                    <div class="list-ing-diet-health">
+                                                        <h5>Diet</h5>
+                                                        <ul>
+                                                            <li><span>&#10003;</span>DIET1</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                                    <div class="list-ing-diet-health">
+                                                            <h5>Health</h5>
+                                                        <ul>
+                                                            <li><span>&#10003;</span>HE1</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">from XY</small>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <span>Recipe from: </span><a href="majd az url">SOURCE</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                             -->
+                        </div> -->
 
+                        <div class="row recipeList">
+                            <!-- IDE JONNEK A RECEPTEK -->
+
+                            <!-- <div class="card-group col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 text-center" data-url=url
+                                data-hover="false">
+                                <div class="card  card__one">
+                                    <div class="card-image">
+                                        <img class="img-fluid text-center" src="image" alt="Card image cap">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">title</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">from source</small>
+                                    </div>
+                                </div>
+                            </div> -->
 
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
         <section class="weather">
@@ -149,16 +180,12 @@
     </footer>
 
 
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-
-
 
 </body>
 

@@ -22,6 +22,13 @@ a:hover {
   -webkit-filter: invert(1);
 }
 
+.magnify {
+  filter: invert(1);
+  -webkit-filter: invert(1);
+  width: 16px;
+  height: 16px;
+}
+
 .btn-page, input[type="submit"], input[type="reset"] {
   background: none;
   color: white;
@@ -41,7 +48,9 @@ a:hover {
 
 .card__one {
   transition: transform 0.5s;
-  background: rgb(229, 207, 196);
+  background: rgb(241, 167, 129);
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .card__one::after {
@@ -58,7 +67,7 @@ a:hover {
 }
 
 .card-group:hover, .card-group:focus {
-  z-index:100;
+  z-index: 100;
   position: relative;
 }
 
@@ -71,9 +80,24 @@ a:hover {
   opacity: 1;
 }
 
+.card-image>img {
+  border-radius: 50%;
+  margin-top: 10px;
+  height: 120px;
+  width: 120px;
+  border: 2px white solid;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
 .card-title {
   font-weight: 600;
   color: rgb(225, 97, 32);
+}
+
+.containerList {
+  width: 100%;
+  padding: 0px;
+  padding-top: 30px;
 }
 
 .collapse {
@@ -97,6 +121,7 @@ a:hover {
 
 .food {
   background-image: linear-gradient(to right, #FFEFBA, #FFFFFF);
+  padding-bottom: 100px;
 }
 
 .full-page {
@@ -116,7 +141,31 @@ a:hover {
   border: 1px rgb(255, 255, 255, 0.5) solid;
 }
 
-ul.health-diet {
+i.far {
+  color: rgb(243, 127, 50);
+}
+
+.ing-diet-health ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ing-diet-health ul li {
+  text-align: left;
+}
+
+.ing-diet-health li span {
+  padding-right: 5px;
+  color: rgb(243, 127, 50);
+}
+
+.ing-diet-health>div:first-child {
+  border-right: 1px rgb(228, 215, 178) solid;
+}
+
+/*
+
+ ul.health-diet {
   list-style-type: none;
 }
 
@@ -124,7 +173,7 @@ ul li {
   font-size: 12px;
   text-align: left;
   margin-left: 5px;
-}
+} */
 
 .jumbotron {
   background: transparent;
@@ -146,7 +195,7 @@ ul li {
 
 .line {
   margin-top: 40px;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   background: rgb(225, 97, 32, 0.3);
   height: 1px;
   width: 33%;
@@ -166,6 +215,64 @@ ul li {
   position: absolute;
   height: 100%;
   width: 100%;
+}
+
+.list-ing-diet-health {
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.list-ing-diet-health h5 {
+  color: rgb(243, 127, 50, 0.5);
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 10px;
+  background: rgb(243, 127, 50, 0.1);
+}
+
+.modal-header, h4, .close {
+  background-color: rgb(228, 216, 179);
+  color: rgb(243, 127, 50) !important;
+  text-align: left;
+  font-weight: bold;
+  font-size: 25px;
+  font-variant: small-caps;
+}
+
+.modal-footer {
+  display: block;
+  padding: 10px;
+  background: rgb(228, 215, 178, 0.75);
+}
+
+.modal-footer span {
+  font-size: 14px;
+  color: rgb(243, 127, 50);
+}
+
+.modal-footer a {
+  font-size: 14px;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-body-image {
+  background: rgb(228, 215, 178, 0.5);
+  padding: 20px;
+}
+
+.modal-body-image>img {
+  width: 250px;
+  height: 200px;
+  border-radius: 5%;
+  border: 2px white solid;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+.modal-body .row {
+  background: rgb(228, 215, 178, 0.5);
 }
 
 .nav-link-text {
@@ -193,9 +300,8 @@ ul li {
   margin-left: 20px;
 }
 
-
 .searchLine {
-  background: rgb(206, 161, 138);
+  background: rgb(206, 161, 138, 0.25);
   padding: 10px;
 }
 
@@ -203,8 +309,13 @@ ul li {
   display: inline;
 }
 
+.searchField span {
+  font-weight: 500;
+}
+
 .pages {
   float: right;
+  margin-top: 5px;
 }
 
 .prev {
@@ -217,11 +328,31 @@ ul li {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.recipeList .card-group {
+  margin-bottom: 10px;
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
 .vertical-spacer {
   color: #fff;
   display: inline-block;
   font-size: .875em;
   font-weight: 600;
+}
+
+.yield-time {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 70px;
+  background: rgb(228, 215, 178, 0.75);
+}
+
+.yield-time i {
+  margin-right: 10px;
 }
 
 .weather {
@@ -245,6 +376,9 @@ ul li {
   a:hover {
     background-color: rgba(207, 61, 61, 0.26);
     font-style: normal !important;
+  }
+  .ing-diet-health>div:first-child {
+    border-right: none;
   }
   .jumbotron h1 {
     color: white;

@@ -1,52 +1,13 @@
-import Search from "./model/Search";
-import { htmlElements } from "./view/base";
+import Search from './model/Search';
+import Modal from './model/Modal'
+import { htmlElements, clearBestRecipes, renderLoaderRecipe, clearLoaderRecipe } from "./view/base";
 import * as searchView from './view/searchView';
+import * as modalView from './view/modalView';
 
 const myNav = document.getElementById('navbaar');
 const myLink = document.getElementsByClassName('nav-link');
 const toggler = document.getElementById('toggler');
 const cim = document.getElementById('cim');
-
-/**
- * STATE of the APP
- */
-const state = {}
-
-/**
- * Recipe search controller
- * class Search
- */
-const controlSearch = async () => {
-  
-  const food = searchView.getInput();
-  searchView.clearBestRecipes();
-  searchView.renderLoaderRecipe();
-  searchView.clearInput();
-  searchView.clearResults();
-  searchView.clearButtons();
-
-  if (food) {
-    state.searchRecipe = new Search(food);
-
-    try {
-
-      await state.searchRecipe.getResults();
-
-
-      searchView.clearLoaderRecipe();
-
-      searchView.renderRecipes(state.searchRecipe.recipes);
-      
-    } catch (err) {
-      alert(err);
-    }
-
-    htmlElements.recipeListStarter.scrollIntoView({behavior: "smooth", block: "start"});
-   
-
-  }
-
-};
 
 
 window.addEventListener('scroll', () => {
@@ -76,6 +37,48 @@ toggler.addEventListener('click', () => {
   }
 });
 
+/**
+ * STATE of the APP
+ */
+const state = {}
+
+/**
+ * Recipe search controller
+ * class Search
+ */
+const controlSearch = async () => {
+
+  const food = searchView.getInput();
+
+
+  if (food) {
+    state.searchRecipe = new Search(food);
+
+    clearBestRecipes();
+    renderLoaderRecipe();
+
+    searchView.clearInput();
+    searchView.clearResults();
+    searchView.clearButtons();
+
+    try {
+
+      await state.searchRecipe.getResults();
+
+      clearLoaderRecipe();
+
+      searchView.renderRecipes(state.searchRecipe.recipes);
+      htmlElements.recipeListStarter.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (err) {
+      alert(err);
+    }
+
+    
+  }
+
+};
+
+
 htmlElements.searchField.addEventListener('submit', e => {
   e.preventDefault();
   controlSearch();
@@ -86,17 +89,42 @@ htmlElements.pages.addEventListener('click', e => {
   let goToPage = 0;
   if (btn) {
     console.log(btn);
-    if(btn.classList.contains("prev")) {
+    if (btn.classList.contains("prev")) {
       goToPage = parseInt(btn.dataset.goto, 10) - 1;
     } else {
       goToPage = parseInt(btn.dataset.goto, 10) + 1;
     }
-   
+
     searchView.clearResults();
     searchView.renderRecipes(state.searchRecipe.recipes, goToPage);
   }
 });
 
+
+htmlElements.recipeList.addEventListener('click', e => {
+
+  const card = e.target.closest('.card-group');
+  const modal = document.querySelector('#myModal');
+
+  if (modal) {
+    modal.parentElement.removeChild(modal);
+  }
+
+  if (card) {
+
+    modalView.renderModal(card, state.searchRecipe.recipes);
+    $("#myModal").modal();
+  }
+});
+
+const controlModal = (card) => {
+
+};
+
+
+
+
+/*
 htmlElements.recipeList.addEventListener('mouseover', e => {
  
  const card = e.target.closest('.card-group');
@@ -112,21 +140,9 @@ htmlElements.recipeList.addEventListener('mouseout', e => {
   if(card) {
     searchView.unRenderDietHealth(card, state.searchRecipe.recipes);
   }
-});
-/*
-htmlElements.prevButton.addEventListener('click', e => {
-  e.preventDefault();
-  htmlElements.prevButton.dataset.page -= 1;
-  htmlElements.nextButton.dataset.page -= 1;
-  searchView.renderRecipes(state.searchRecipe.recipes, htmlElements.prevButton.dataset.page);
-})
+});*/
 
-htmlElements.nextButton.addEventListener('click', e => {
-  e.preventDefault();
-  htmlElements.nextButton.dataset.page += 1;
-  htmlElements.prevButton.dataset.page += 1;
-  searchView.renderRecipes(state.searchRecipe.recipes, htmlElements.prevButton.dataset.page);
-})*/
+
 
 
 
