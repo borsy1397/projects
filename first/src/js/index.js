@@ -37,6 +37,7 @@ toggler.addEventListener('click', () => {
   }
 });
 
+
 /**
  * STATE of the APP
  */
@@ -49,6 +50,11 @@ const state = {}
 const controlSearch = async () => {
 
   const food = searchView.getInput();
+  const recipeContainer = document.querySelector('.recipeContainer');
+  const width = window.innerWidth || document.body.clientWidth;
+  console.log(width);
+  recipeContainer.style.minHeight = "200px";
+
 
 
   if (food) {
@@ -68,12 +74,17 @@ const controlSearch = async () => {
       clearLoaderRecipe();
 
       searchView.renderRecipes(state.searchRecipe.recipes);
-      htmlElements.recipeListStarter.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      setTimeout(() => {
+        if (width >= 1200) {
+          console.log(width);
+          recipeContainer.style.minHeight = `${recipeContainer.clientHeight}px`;
+        }
+
+      }, 400);
     } catch (err) {
       alert(err);
     }
-
-    
   }
 
 };
@@ -85,14 +96,15 @@ htmlElements.searchField.addEventListener('submit', e => {
 });
 
 htmlElements.pages.addEventListener('click', e => {
+  console.log(e);
+  e.preventDefault();
   const btn = e.target.closest('.btn-inline');
   let goToPage = 0;
   if (btn) {
-    console.log(btn);
     if (btn.classList.contains("prev")) {
-      goToPage = parseInt(btn.dataset.goto, 10) - 1;
+      goToPage = parseInt(btn.dataset.page, 10) - 1;
     } else {
-      goToPage = parseInt(btn.dataset.goto, 10) + 1;
+      goToPage = parseInt(btn.dataset.page, 10) + 1;
     }
 
     searchView.clearResults();
@@ -104,7 +116,32 @@ htmlElements.pages.addEventListener('click', e => {
 htmlElements.recipeList.addEventListener('click', e => {
 
   const card = e.target.closest('.card-group');
+  controlModal(card);
+  //const modal = document.querySelector('#myModal');
+
+  // if (modal) {
+  //   modal.parentElement.removeChild(modal);
+  // }
+
+  // if (card) {
+
+  //   state.modal = new Modal(card);
+
+
+  //   const modalToRender = state.modal.findRecipe(state.searchRecipe.recipes);
+
+  //   modalView.renderModal(modalToRender);
+  //   $("#myModal").modal();
+  // }
+});
+
+const controlModal = (card) => {
+
   const modal = document.querySelector('#myModal');
+
+  // if(htmlElements.modal) {
+  //   htmlElements.modal.parentElement.removeChild(htmlElements.modal);
+  // }
 
   if (modal) {
     modal.parentElement.removeChild(modal);
@@ -112,12 +149,15 @@ htmlElements.recipeList.addEventListener('click', e => {
 
   if (card) {
 
-    modalView.renderModal(card, state.searchRecipe.recipes);
-    $("#myModal").modal();
-  }
-});
+    state.modal = new Modal(card);
 
-const controlModal = (card) => {
+
+    const modalToRender = state.modal.findRecipe(state.searchRecipe.recipes);
+
+    modalView.renderModal(modalToRender);
+    $("#myModal").modal();
+
+  }
 
 };
 
@@ -126,7 +166,7 @@ const controlModal = (card) => {
 
 /*
 htmlElements.recipeList.addEventListener('mouseover', e => {
- 
+
  const card = e.target.closest('.card-group');
 
   if(card) {

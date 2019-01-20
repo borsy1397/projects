@@ -2,11 +2,13 @@ export const htmlElements = {
     searchField: document.querySelector('.searchField'),
     searchFieldValue: document.querySelector('#searchFieldValue'),
     recipeList: document.querySelector('.recipeList'),
+    containerList: document.querySelector('.containerList'),
     oneCard: document.querySelector('.card-group'),
     pages: document.querySelector('.pages'),
     recipeListStarter: document.querySelector('#recipeStarter'),
     prevButton: document.querySelector('#prev'),
-    nextButton: document.querySelector('#next')
+    nextButton: document.querySelector('#next'),
+    modal: document.querySelector('#myModal')
 };
 
 export const renderNotFound = () => {
@@ -32,7 +34,10 @@ export const clearLoaderRecipe = () => {
 
 export const clearBestRecipes = () => {
     const bestRecipes = document.querySelector('.bestRecipes');
-    if (bestRecipes) bestRecipes.parentElement.removeChild(bestRecipes);
+    if (bestRecipes){
+        bestRecipes.parentElement.removeChild(bestRecipes);
+        htmlElements.containerList.style.paddingTop = "30px";
+    }
     const notFound = document.querySelector('.notFound');
     if (notFound) notFound.parentElement.removeChild(notFound);
 };

@@ -56,6 +56,18 @@ export const renderRecipes = (recipes, page = 1) => {
         renderButtons(recipes.length, page, recipePerPage);
     }
 
+     $(".card-group").each(function (i) {
+         $(this).delay(100 * i).css("display", "flex").hide().fadeIn(500);
+     });
+
+     setTimeout(()=> {
+        
+        document.querySelector('#recipeStarter').scrollIntoView({ behavior: "smooth", block: "start" });
+        
+      }, 400);
+
+     
+
 };
 
 
@@ -75,13 +87,13 @@ export const renderButtons = (recipeCount, page, recipePerPage) => {
     clearButtons();
 
     if (page != 1) {
-        const prev = `<button class="btn-inline prev btn-page" id="prev" data-goto=${page}> <img class="arrow" src="/asset/back.png" /> Page ${page - 1} </button>`;
+        const prev = `<button class="btn-inline prev btn-page" id="prev" data-page=${page}> <img class="arrow" src="/asset/back.png" /> Page ${page - 1} </button>`;
         htmlElements.pages.insertAdjacentHTML('beforeend', prev);
     }
 
     if ((recipeCount / recipePerPage) > page) {
 
-        const next = `<button class="btn-inline next btn-page" id="next" data-goto=${page}>  Page ${page + 1} <img class="arrow" src="/asset/right-arrow.png" /> </button>`;
+        const next = `<button class="btn-inline next btn-page" id="next" data-page=${page}>  Page ${page + 1} <img class="arrow" src="/asset/right-arrow.png" /> </button>`;
         htmlElements.pages.insertAdjacentHTML('beforeend', next);
     }
 }
@@ -92,10 +104,6 @@ export const clearButtons = () => {
     const next = document.querySelector('.next');
     if (next) next.parentElement.removeChild(next);
 }
-
-
-
-
 
 
 
